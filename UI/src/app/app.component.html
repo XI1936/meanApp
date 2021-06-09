@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Home</a>
+  <button class="btn-success p-2" (click)="showPost()">
+    Show All Post
+  </button>
+  </div>
+</nav>
+
+  <div class="card text-center m-3" *ngFor="let post of PostData; index as i">
+    <div class="card-header">
+      <b>{{i+1}} post</b>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p class="card-text">{{post.discription}}</p>
+    </div>
+    <div class="card-footer text-muted">
+      On {{post.date | date}}
+    </div>
+  </div>
