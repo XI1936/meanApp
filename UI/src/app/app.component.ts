@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'UI';
+  postData=[];
   ngOnInit(){
   
   }
-
+  receiveMsg(event){
+    this.postData=event
+  }
 
 }

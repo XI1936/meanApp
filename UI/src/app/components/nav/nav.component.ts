@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/service/app.service';
+import { Component, EventEmitter, OnInit ,Output} from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  @Output() messageEvent= new EventEmitter<any>();
+
+  constructor(private service: AppService) { }
 
   ngOnInit(): void {
   }
+  showPost(){
+    this.service.showPost().subscribe((data)=>{
+      this.messageEvent.emit(data);
+    })
+   
+  }
+
 
 }
