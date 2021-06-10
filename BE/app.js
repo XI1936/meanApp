@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser= require("body-parser");
 const app = express();
-
+const port= process.env.PORT || 3000;
 // Fix the CORS Error 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -30,7 +30,7 @@ mongoose.connect(
 });
 
 //Start the app at port 3000
-app.listen(3000, () => {
-  console.log("App is running at port 3000");
+app.listen(port, () => {
+  console.log("App is running at port ..",port);
 });
  
