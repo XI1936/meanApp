@@ -1,9 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Home</a>
-      <button class="btn-success p-2" (click)="showPost()">
-        Show Post
+      <button style="width: 100px;" class="btn-success p-2" (click)="showPost()">
+         <span *ngIf="!isLoading"> Show Post</span> 
+        <div *ngIf="isLoading" style="padding-top: 10%; display: flex;align-items: center;justify-content: center;">
+          <div class="spinner-border text-light" role="status">
+              <span class="sr-only"></span>
+            </div>
+      </div>
     </button>
-    <app-show-button></app-show-button>
     </div>
   </nav>

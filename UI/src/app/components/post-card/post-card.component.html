@@ -1,14 +1,12 @@
-<p>post-card works!</p>
-<!-- <div class="card text-center m-3" *ngFor="let post of PostData; index as i"> -->
+<div class="card text-center m-3">
     <div class="card-header">
-      jjjjjj
-      <!-- <b>{{i+1}} post</b>
+      <b>post</b>
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{post.title}}</h5>
-      <p class="card-text">{{post.discription}}</p>
+      <h5 class="card-title">{{cardData.title}}</h5>
+      <p class="card-text">{{cardData.discription}}</p>
     </div>
     <div class="card-footer text-muted">
-      On {{post.date | date}} -->
+      On {{cardData.date | date}}
     </div>
-  <!-- </div> -->
+  </div>

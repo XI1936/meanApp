@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit ,Output} from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  isLoading:boolean=false;
 
   @Output() messageEvent= new EventEmitter<any>();
 
@@ -15,8 +16,10 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
   showPost(){
+    this.isLoading=true;
     this.service.showPost().subscribe((data)=>{
       this.messageEvent.emit(data);
+      this.isLoading=false;
     })
    
   }

@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'UI';
+  isLoading:boolean=true;
   postData=[];
   ngOnInit(){
   
   }
   receiveMsg(event){
     this.postData=event
+    this.isLoading=false;
   }
 
 }
