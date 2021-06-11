@@ -1,18 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
 
-  private messageSource = new BehaviorSubject([]);
-  currentMessage = this.messageSource.asObservable();
+  BASE_URL='https://floating-caverns-53387.herokuapp.com';
 
   constructor(private http : HttpClient) { }
   
   showPost(){
-    return   this.http.get('https://floating-caverns-53387.herokuapp.com/post'); 
+    return   this.http.get(this.BASE_URL+'/post'); 
+  }
+
+  addPost(data){
+    return this.http.post<any>(this.BASE_URL+'/post', data);
   }
 }
