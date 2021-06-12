@@ -1,5 +1,5 @@
 import { AppService } from 'src/app/service/app.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,Output ,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-post-card',
@@ -10,16 +10,21 @@ export class PostCardComponent implements OnInit {
 
   @Input("cardData") cardData;
   
+  @Output() messageEvent= new EventEmitter<any>();
   constructor(private appService:AppService) { }
 
   ngOnInit(): void {
   }
 
   deletPost(id){
-    this.appService.deletPost(id).subscribe(a=>{
-      alert("deleted");
-    })
-    console.warn(id);
+    let ans=confirm("Do you realy want to delete.")
+      if (ans){
+        this.appService.deletPost(id).subscribe(a=>{
+          this.appService.showPost().subscribe((data)=>{
+            this.messageEvent.emit(data);
+          });
+        });
+     
+      } 
   }
-
 }
