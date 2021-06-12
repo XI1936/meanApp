@@ -1,5 +1,5 @@
 import { AppService } from 'src/app/service/app.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddPostComponent implements OnInit {
   formView:boolean = false;
+  @Output() messageEvent= new EventEmitter<any>();
+
   constructor(private appService: AppService) { }
   form = new FormGroup({
   title: new FormControl('',[Validators.required]),
@@ -24,6 +26,10 @@ export class AddPostComponent implements OnInit {
     console.log(f);
     this.appService.addPost(f).subscribe(a=>{
       alert("data saved");
+      this.appService.showPost().subscribe((data)=>{
+        this.messageEvent.emit(data);
+        this.formView=false;
+      })
     });
   }
   close(){

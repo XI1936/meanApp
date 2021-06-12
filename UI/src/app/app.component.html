@@ -1,5 +1,5 @@
 <app-nav (messageEvent)="receiveMsg($event)"></app-nav>
-<app-add-post></app-add-post>
+<app-add-post  (messageEvent)="receiveMsg($event)"></app-add-post>
 <ng-container *ngFor="let post of postData"> 
     <app-post-card [cardData]="post"></app-post-card>
 </ng-container>

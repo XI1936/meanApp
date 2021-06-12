@@ -8,5 +8,9 @@
     </div>
     <div class="card-footer text-muted">
       On {{cardData.date | date}}
-    </div>
+      <a type="button" class="btn btn-danger" (click)="deletPost(cardData._id)">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </a>
+     
+    
   </div>
