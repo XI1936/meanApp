@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppService } from 'src/app/service/app.service';
@@ -9,7 +10,7 @@ import { AppService } from 'src/app/service/app.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private router: Router) { }
   form = new FormGroup({
   uname: new FormControl('',[Validators.required]),
   password:new FormControl('',[Validators.required])
@@ -19,7 +20,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(data){
-    console.warn(data);
+    
+    this.appService.login(data).subscribe(a=>{
+      localStorage.setItem("token", JSON.stringify(a["token"]));
+      this.router.navigate(['/home']);
+    });
   }
   clearAll(){
     this.form.get('password').setValue("");
