@@ -9,11 +9,13 @@ export class TokenInterseptService implements HttpInterceptor {
  
   intercept(req: HttpRequest<any>, next: HttpHandler):   Observable<HttpEvent<any>> {
     // All HTTP requests are going to go through this method
-   
+    if (localStorage.getItem("token")) {
       const RequestWithToken = req.clone({
         headers: req.headers.set('UserToken', localStorage.getItem("token")),
       });
       return next.handle(RequestWithToken);
+    }
+    return next.handle(req);
   
 }
 }
