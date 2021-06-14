@@ -8,6 +8,7 @@ import { ShowButtonComponent } from './components/show-button/show-button.compon
 import { PostCardComponent } from './components/post-card/post-card.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavComponent,
     ShowButtonComponent,
     PostCardComponent,
-    AddPostComponent
+    AddPostComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
