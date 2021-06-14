@@ -18,8 +18,6 @@ export class AuthenticationGuard implements CanActivate {
     }
 
     this.router.navigate(['/login']);
-       
-
     return isAllowed;
 }
   
