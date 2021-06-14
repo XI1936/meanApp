@@ -9,6 +9,7 @@ import { PostCardComponent } from './components/post-card/post-card.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginComponent } from './components/login/login.component';
     ShowButtonComponent,
     PostCardComponent,
     AddPostComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
