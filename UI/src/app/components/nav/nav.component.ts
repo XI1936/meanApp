@@ -19,6 +19,11 @@ export class NavComponent implements OnInit {
     this.isLoading=true;
     this.service.showPost().subscribe((data)=>{
       this.messageEvent.emit(data);
+      this.isLoading=false;  
+    },
+    (error) => {                              
+      alert("Please Login Again your session expired");
+      console.log(error);
       this.isLoading=false;
     })
    
