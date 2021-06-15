@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   login(data){
     
     this.appService.login(data).subscribe(a=>{
-      localStorage.setItem("token", JSON.stringify(a["token"]));
+      localStorage.setItem("token",a["token"]);
       this.router.navigate(['/home']);
     });
   }
